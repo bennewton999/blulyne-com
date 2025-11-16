@@ -19,6 +19,7 @@ const products = [
       'Trusted by over 500 websites worldwide',
     ],
     tech: ['Next.js', 'TypeScript', 'Real-time Analytics'],
+    gradient: 'from-red-600 to-pink-600',
   },
   {
     name: 'VoiceCommit',
@@ -33,6 +34,7 @@ const products = [
       'Seamless GitHub integration',
     ],
     tech: ['AI/ML', 'Voice Processing', 'GitHub API', 'Next.js'],
+    gradient: 'from-orange-500 to-orange-600',
   },
   {
     name: 'BlackOpsCenter',
@@ -47,6 +49,7 @@ const products = [
       'Scalable SaaS infrastructure',
     ],
     tech: ['Next.js 15', 'Supabase', 'Multi-tenant SaaS'],
+    gradient: 'from-orange-600 to-yellow-600',
   },
 ];
 
@@ -125,8 +128,8 @@ export default function Portfolio() {
               </a>
             </div>
 
-            <div className="flex-1 bg-gray-100 rounded-lg h-64 flex items-center justify-center">
-              <span className="text-gray-400 text-lg">{product.name}</span>
+            <div className={`flex-1 bg-gradient-to-br ${product.gradient} rounded-lg h-64 flex items-center justify-center shadow-lg`}>
+              <span className="text-white text-2xl font-bold">{product.name}</span>
             </div>
           </article>
         ))}
