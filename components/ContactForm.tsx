@@ -1,13 +1,15 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type FormData = {
   name: string;
   email: string;
   subject: string;
   message: string;
+  website?: string; // Honeypot field - should remain empty
+  formLoadedAt?: number; // Timestamp for time-based validation
 };
 
 export default function ContactForm() {
@@ -21,6 +23,11 @@ export default function ContactForm() {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+  const [formLoadedAt, setFormLoadedAt] = useState<number>(0);
+
+  useEffect(() => {
+    setFormLoadedAt(Date.now());
+  }, []);
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -29,7 +36,7 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, formLoadedAt }),
       });
 
       if (!response.ok) {
@@ -51,6 +58,18 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      {/* Honeypot field - hidden from users, bots will fill it */}
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register('website')}
+        />
+      </div>
+
       {submitStatus.type && (
         <div
           className={`p-4 rounded-lg ${
