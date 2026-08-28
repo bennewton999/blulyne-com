@@ -43,7 +43,7 @@ export default function Home() {
       <FadeInSection>
         <section className="py-20 text-center">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Blulyne LLC
+            Blulyne Group LLC
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
             Building intelligent tools for modern developers and enterprises

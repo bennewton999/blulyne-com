@@ -1,6 +1,6 @@
-# Blulyne LLC Website
+# Blulyne Group LLC Website
 
-Official website for Blulyne LLC - Building intelligent tools for modern developers and enterprises.
+Official website for Blulyne Group LLC - Building intelligent tools for modern developers and enterprises.
 
 ## Features
 
@@ -64,4 +64,4 @@ This site is optimized for deployment on Vercel:
 
 ## License
 
-© 2025 Blulyne LLC. All rights reserved.
+© 2026 Blulyne Group LLC. All rights reserved.
