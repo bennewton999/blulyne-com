@@ -35,7 +35,7 @@ export default function About() {
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Our Mission</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Blulyne LLC is dedicated to building intelligent tools that empower modern developers
+              Blulyne Group LLC, Florida limited liability company, is dedicated to building intelligent tools that empower modern developers
               and enterprises to work smarter, faster, and more effectively. We believe in leveraging
               cutting-edge technologies, particularly AI, to solve real-world problems and streamline
               complex workflows.
@@ -68,7 +68,7 @@ export default function About() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Our Products</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Blulyne LLC is the parent company for three innovative platforms:
+              Blulyne Group LLC is the parent company for three innovative platforms:
             </p>
             <ul className="space-y-2">
               {products.map((product) => (

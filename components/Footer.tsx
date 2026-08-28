@@ -1,8 +1,12 @@
+import Link from 'next/link';
+import CompanyAddress from '@/components/CompanyAddress';
+import { COMPANY_COPYRIGHT_YEAR, COMPANY_LEGAL_NAME } from '@/lib/company';
+
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800 mt-auto bg-white dark:bg-gray-950 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 text-center">
           <a
             href="https://x.com/blulyne"
             target="_blank"
@@ -12,8 +16,17 @@ export default function Footer() {
           >
             <XIcon className="w-5 h-5" />
           </a>
+          <CompanyAddress className="text-gray-600 dark:text-gray-400 text-sm space-y-1" />
+          <nav className="flex items-center gap-4 text-sm">
+            <Link href="/privacy" className="link-primary">
+              Privacy
+            </Link>
+            <Link href="/terms" className="link-primary">
+              Terms
+            </Link>
+          </nav>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Blulyne LLC. All rights reserved.
+            &copy; {COMPANY_COPYRIGHT_YEAR} {COMPANY_LEGAL_NAME}. All rights reserved.
           </p>
         </div>
       </div>

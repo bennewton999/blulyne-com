@@ -2,6 +2,8 @@
 
 import ContactForm from '@/components/ContactForm';
 import FadeInSection from '@/components/FadeInSection';
+import CompanyAddress from '@/components/CompanyAddress';
+import { COMPANY_EMAIL } from '@/lib/company';
 
 export default function Contact() {
   return (
@@ -16,6 +18,12 @@ export default function Contact() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
+        <div className="mb-12 text-center text-gray-600 dark:text-gray-400">
+          <CompanyAddress showContactName className="space-y-1" />
+        </div>
+      </FadeInSection>
+
+      <FadeInSection delay={0.15}>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-8">
           <ContactForm />
         </div>
@@ -26,10 +34,10 @@ export default function Contact() {
           <p className="text-gray-600 dark:text-gray-400">
             You can also reach us directly at{' '}
             <a
-              href="mailto:ben@blulyne.com"
+              href={`mailto:${COMPANY_EMAIL}`}
               className="link-primary font-medium"
             >
-              ben@blulyne.com
+              {COMPANY_EMAIL}
             </a>
           </p>
         </div>
