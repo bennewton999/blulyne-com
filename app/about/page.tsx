@@ -19,11 +19,11 @@ export default function About() {
   ];
 
   const products = [
-    { name: 'VitalWall', description: 'Real-time analytics and visitor tracking for 500+ websites' },
-    { name: 'VoiceCommit', description: 'AI-powered voice-to-GitHub development tool' },
-    { name: 'BlackOpsCenter', description: 'Enterprise content intelligence platform' },
+    { name: 'VitalWall', description: 'Live activity walls you can embed on any site' },
+    { name: 'BlackOps Center', description: 'Brains your AI agents can read, update and publish from' },
+    { name: 'Hey Spotter', description: 'The iPhone workout log you talk to' },
+    { name: 'VoiceCommit', description: 'A voice-first idea notebook that promotes ideas to GitHub issues' },
   ];
-
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <FadeInSection>
@@ -41,8 +41,8 @@ export default function About() {
               complex workflows.
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              Our portfolio spans real-time analytics, AI-powered development tools, and enterprise
-              content intelligence platforms—each designed with a focus on user experience,
+              Our products span live activity walls, AI agent brains, a voice-first workout log and a voice
+              idea notebook, each designed with a focus on user experience,
               scalability, and innovation.
             </p>
           </section>
@@ -68,7 +68,7 @@ export default function About() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Our Products</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Blulyne Group LLC is the parent company for three innovative platforms:
+              Blulyne Group LLC is the parent company for four live products:
             </p>
             <ul className="space-y-2">
               {products.map((product) => (
