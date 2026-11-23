@@ -1,100 +1,48 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import ThemeToggle from './ThemeToggle';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/#products', label: 'Products', keep: true },
+  { href: '/about', label: 'About', keep: false },
+  { href: '/#shipped', label: 'Shipping', keep: false },
+  { href: '/contact', label: 'Contact', keep: true },
 ];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 transition-colors">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/">
-            <Image
-              src="/images/blulyne-logo.png"
-              alt="Blulyne"
-              width={140}
-              height={40}
-              priority
-              className="dark:brightness-110"
+    <header className="site-header">
+      <div className="wrap">
+        <Link className="brand" href="/" aria-label="Blulyne Group home">
+          <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="27" height="27" rx="7" fill="#0E1422" stroke="#1F2A41" />
+            <path
+              d="M5 17 H10 L12.5 10 L15.5 21 L18 14 H23"
+              fill="none"
+              stroke="#3B82FF"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-          </Link>
-
-          {/* Desktop navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex items-center gap-4 md:hidden">
-            <ThemeToggle />
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle menu"
+          </svg>
+          Blulyne <small>Group LLC</small>
+        </Link>
+        <nav className="site-nav" aria-label="Main">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={link.keep ? 'keep' : undefined}
+              aria-current={pathname === link.href ? 'page' : undefined}
             >
-              {mobileMenuOpen ? (
-                <XIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />
-              ) : (
-                <MenuIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-800">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors py-2"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </header>
-  );
-}
-
-function MenuIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  );
-}
-
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-    </svg>
   );
 }
